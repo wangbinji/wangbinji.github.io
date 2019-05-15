@@ -242,6 +242,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/09/Networking/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王斌绩">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书生意气">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/09/Networking/" itemprop="url">Networking</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-09T17:37:12+08:00">
+                2019-05-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/09/Networking/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/09/Networking/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>URL  统一资源定位符，指定文档所在的地址<br>HTML 超文本标记语言，<br>应用层     HTTP<br>传输层     TCP<br>网络层     IP<br>链路层     </p>
+<p>IP协议<br>作用:         把各种数据包传送给对方，确保传送到对方那里的数据需要满足各类条件（IP地址，MAC地址）<br>ARP协议：根据通信方的IP地址找到对方的MAC地址</p>
+<p>DNS作用：通过域名查找IP地址，或逆向从IP地址反查域名，主要提供域名到IP地址直接的解析服务<br>客户端向DNS服务器请求某一具体服务器的IP地址，DNS提供域名解析服务将对应目标服务器的IP地址找到，返回给客户端。客户端获取到IP地址后在应用层通过80端口进行HTTP的请求。HTTP协议此时生成针对目标WEB服务器的HTTP请求报文。然后由应用层到传输层，为了方便通信，TCP协议将HTTP请求报文分割成报文段，并且把每一个报文段可靠的传输给对方。然后到了网络层IP协议 ，IP协议搜索对方的地址，一边中转，一边传送。此时对应的物理网络设备应该是路由器。然后有交换机。TCP协议从对方那里接收到报文段，重组报文段，按照序号以原来的顺序重组报文请求。到达应用层后HTTP协议处理客户端对WEB服务器请求资源的处理。</p>
+<p>请求报文是由 请求方法、请求URL，协议版本，可选请求首部字段，内容实体。</p>
+<p>响应报文是由  协议版本，状态码，状态码原因短语，可选的响应首部字段，内容实体</p>
+<p>HTTP协议使用URL定位互联网上的资源，在首部字段Host中写明网络域名或者IP地址</p>
+<p>HTTP/1.1可使用的方法<br>GET       用来请求已被URL识别的资源<br>POST    用来传输实体的主体<br>PUT         用来传输文件。就像FTP协议的文件上传一样<br>DELETE  删除文件，按照请求URL删除指定资源<br>CONNECT</p>
+<p>HTTP协议的特点<br>1、无连接           限制每次连接只处理一个连接请求，服务器处理完客户的请求并且收到客户的应答后断开连接<br>2、无状态</p>
+<p>给定这些客户端和服务器套接字地址，客户端和服务器之间的连接就由下列套接字对唯一确定了<br>（128.2.194.242:51213,208.216.181:80）</p>
+<p>美国政府持续30年不变的投资，以及充满激情的研究人员。</p>
+<p>KVO 键值观察观察的是setter方法的改变</p>
+<p>响应式编程               KVO还可以insert,remove,replace</p>
+<p>block代码块主要用于对象之间的通信（反向传值和方法传递）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/09/2019-5-9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -261,7 +403,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/09/2019-5-9/" itemprop="url">2019-5-9</a></h1>
+                <a class="post-title-link" href="/2019/05/09/2019-5-9/" itemprop="url">iOS开发之第三方库的使用</a></h1>
         
 
         <div class="post-meta">
@@ -1094,7 +1236,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
