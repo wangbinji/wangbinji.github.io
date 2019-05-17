@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="the Model-View-Controller (MVC) design patternModel objects manage the app’s data and business logic.View objects provide the visual representation of your data.Controller objects act as a bridge betw">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019-5-16">
+<meta property="og:url" content="http://yoursite.com/2019/05/16/2019-5-16/index.html">
+<meta property="og:site_name" content="书生意气">
+<meta property="og:description" content="the Model-View-Controller (MVC) design patternModel objects manage the app’s data and business logic.View objects provide the visual representation of your data.Controller objects act as a bridge betw">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-17T08:11:11.646Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2019-5-16">
+<meta name="twitter:description" content="the Model-View-Controller (MVC) design patternModel objects manage the app’s data and business logic.View objects provide the visual representation of your data.Controller objects act as a bridge betw">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/16/2019-5-16/">
+
+
+
+
+
+  <title>2019-5-16 | 书生意气</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">书生意气</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/2019-5-16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王斌绩">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书生意气">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2019-5-16</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T10:42:13+08:00">
+                2019-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/16/2019-5-16/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/16/2019-5-16/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="the-Model-View-Controller-MVC-design-pattern"><a href="#the-Model-View-Controller-MVC-design-pattern" class="headerlink" title="the Model-View-Controller (MVC) design pattern"></a>the Model-View-Controller (MVC) design pattern</h2><p>Model objects manage the app’s data and business logic.<br>View objects provide the visual representation of your data.<br>Controller objects act as a bridge between your model and view objects, moving data between them at appropriate times.</p>
+<p>View hierarchies make it easier to manage views.<br>You can also use views to do any of the following:</p>
+<pre><code>1. Respond to touches and other events (either directly or in coordination with gesture recognizers).
+2. Draw custom content using Core Graphics or UIKit classes.
+3. Support drag and drop interactions.
+4. Respond to focus changes.
+5. Animate the size, position, and appearance attributes of the view.
+
+Container Views
+
+Content Views
+</code></pre><p>Creating cells lazily reduces the amount of memory the table uses. </p>
+<h2 id="A-view-controller’s-main-responsibilities-include-the-following"><a href="#A-view-controller’s-main-responsibilities-include-the-following" class="headerlink" title="A view controller’s main responsibilities include the following:"></a>A view controller’s main responsibilities include the following:</h2><pre><code>Updating the contents of the views, usually in response to changes to the underlying data.
+Responding to user interactions with views.
+Resizing views and managing the layout of the overall interface.
+Coordinating with other objects—including other view controllers—in your app.
+</code></pre><h2 id="对象之间的通信-一般有三种方式-代理、block、通知"><a href="#对象之间的通信-一般有三种方式-代理、block、通知" class="headerlink" title="对象之间的通信 一般有三种方式  代理、block、通知"></a>对象之间的通信 一般有三种方式  代理、block、通知</h2><p>方法的内存实在栈区 当使用copy修饰的时候，系统会把改block实现拷贝一份到堆区</p>
+<p>传递的时候，对于基本数据类型的外部变量来说，传递的仅仅是值，也就是说这个局部变量是不能被修改的，如果想修改值，会使用__block来修饰这个变量。这样一来，系统在传递的时候，传的就是外部变量的地址，这样我们就可以修改值了。</p>
+<p>closure 闭包</p>
+<p>闭包就是能够读其他函数内部变量的函数<br>返回值(^块对象名称)(参数列表类型) = ^(参数列表){块对象中的代码}<br>存放地址的内存别名就是指针 int *p = &a;</p>
+<p>1.反向传值</p>
+<p>2.在方法中定义block回调传值</p>
+<p>3.做为参数传递</p>
+<p>iOS开发之友盟的集成<br>    社会化分享SDK        U-Share<br>    消息推送SDK             U-Push          当前版本3.2.4<br>    移动统计SDK             U-App         </p>
+<h2 id="成功的实现了一个代理"><a href="#成功的实现了一个代理" class="headerlink" title="成功的实现了一个代理"></a>成功的实现了一个代理</h2><pre><code>首先要声明一个协议        
+               @protocol btnClickedDelegate &lt;NSObject&gt;
+</code></pre><p>   定义点击事件方法，<br>  -(void)btnClicked<br>    声明一个delegate的变量<br>  @property (nonatomic,weak) id<btnclickeddelegate><br>    在cell中的点击事件中调用协议中的方法<br>  [self.btnClickedDelegate btnClicked]<br>    首先将视图设置为代理本身<br>  view.btnClickedDelegate = self<br>    在viewController中实现代理<br>  -(void)btnClicked</btnclickeddelegate></p>
+<h1 id="故事的开头是这样的：我在写一个项目的过程中自定义了一个View叫做BSPopupView，这个View是一个浮窗，浮窗上面有三行内容，每行内容中呢有一个图标，一行文字和一个点击按钮。当我在对应的ViewController中使用这个自定义的View的时候。我该在哪里处理View中按钮的点击事件呢？很明显的是应该将其放到ViewController中来处理，可是我该怎么做到呢？"><a href="#故事的开头是这样的：我在写一个项目的过程中自定义了一个View叫做BSPopupView，这个View是一个浮窗，浮窗上面有三行内容，每行内容中呢有一个图标，一行文字和一个点击按钮。当我在对应的ViewController中使用这个自定义的View的时候。我该在哪里处理View中按钮的点击事件呢？很明显的是应该将其放到ViewController中来处理，可是我该怎么做到呢？" class="headerlink" title="故事的开头是这样的：我在写一个项目的过程中自定义了一个View叫做BSPopupView，这个View是一个浮窗，浮窗上面有三行内容，每行内容中呢有一个图标，一行文字和一个点击按钮。当我在对应的ViewController中使用这个自定义的View的时候。我该在哪里处理View中按钮的点击事件呢？很明显的是应该将其放到ViewController中来处理，可是我该怎么做到呢？"></a>故事的开头是这样的：我在写一个项目的过程中自定义了一个View叫做BSPopupView，这个View是一个浮窗，浮窗上面有三行内容，每行内容中呢有一个图标，一行文字和一个点击按钮。当我在对应的ViewController中使用这个自定义的View的时候。我该在哪里处理View中按钮的点击事件呢？很明显的是应该将其放到ViewController中来处理，可是我该怎么做到呢？</h1><h2 id="我浪迹于各种博客，网站。略模的寻找到了一些线索。大致的方案呢有如下的三种：首先是可以采用发送通知的方式来处理，其次是使用代理的方式来处理，最后是采用Block的方式来处理。这算是给了上、中、下三策啊。可是问题又来了，谁是上策，谁是中策，谁又是下策呢？那我只能挨个儿试试啦。"><a href="#我浪迹于各种博客，网站。略模的寻找到了一些线索。大致的方案呢有如下的三种：首先是可以采用发送通知的方式来处理，其次是使用代理的方式来处理，最后是采用Block的方式来处理。这算是给了上、中、下三策啊。可是问题又来了，谁是上策，谁是中策，谁又是下策呢？那我只能挨个儿试试啦。" class="headerlink" title="我浪迹于各种博客，网站。略模的寻找到了一些线索。大致的方案呢有如下的三种：首先是可以采用发送通知的方式来处理，其次是使用代理的方式来处理，最后是采用Block的方式来处理。这算是给了上、中、下三策啊。可是问题又来了，谁是上策，谁是中策，谁又是下策呢？那我只能挨个儿试试啦。"></a>我浪迹于各种博客，网站。略模的寻找到了一些线索。大致的方案呢有如下的三种：首先是可以采用发送通知的方式来处理，其次是使用代理的方式来处理，最后是采用Block的方式来处理。这算是给了上、中、下三策啊。可是问题又来了，谁是上策，谁是中策，谁又是下策呢？那我只能挨个儿试试啦。</h2><h2 id="既然有三种方式可用，那么这三种方式肯定是有各自独特的适用范围和情况的。就通知来说的话，更适用于两个对象没有关系，或者一个对象要和多个对象通信，那么可以采用通知中心。"><a href="#既然有三种方式可用，那么这三种方式肯定是有各自独特的适用范围和情况的。就通知来说的话，更适用于两个对象没有关系，或者一个对象要和多个对象通信，那么可以采用通知中心。" class="headerlink" title="既然有三种方式可用，那么这三种方式肯定是有各自独特的适用范围和情况的。就通知来说的话，更适用于两个对象没有关系，或者一个对象要和多个对象通信，那么可以采用通知中心。"></a>既然有三种方式可用，那么这三种方式肯定是有各自独特的适用范围和情况的。就通知来说的话，更适用于两个对象没有关系，或者一个对象要和多个对象通信，那么可以采用通知中心。</h2><p>使用的步骤如下：</p>
+<p>1.创建一个通知<br>NSNotification *notification = [NSNotification notificationWithName:kNotificationWithClickZFBButton object:nil userInfo:nil];</p>
+<p>[[NSNotificationCenter defaultCenter] postNotification:notification];</p>
+<p>2.在需要处理的地方监听一下<br>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(kNotificationWithClickZFBButton:) name:kNotificationWithClickZFBButton object:nil];</p>
+<p>通知说完说代理 代理的使用步骤如下。</p>
+<p>1、第一步可以在BSPopView中声明一个协议，声明的方法如下语句：<br><figure class="highlight plain"><figcaption><span>btnClickedDelegate <nsobject></nsobject></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">2、第二步，为这个声明的协议添加对应的定义点击事件方法，如下语句：</span><br><span class="line"></span><br><span class="line">```                  -(void)btnClicked；</span><br></pre></td></tr></table></figure></p>
+<p>3、第三步，在BSPopView的头文件中声明一个delegate的属性，可以采用如下的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@property (nonatomic,weak) id&lt;btnClickedDelegate&gt;</span><br></pre></td></tr></table></figure></p>
+<p>4、第四步，在BSPopView的实现文件中添加当按钮被点击的时候调用协议中的方法，语句如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self.btnClickedDelegate btnClicked]</span><br></pre></td></tr></table></figure></p>
+<p>5、第五步，此时就可以到对应的ViewController中来实现在BSPopView中定义的代理了<br>6、第六步，首先需要继承这个代理，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@interface BSStopPayViewController () &lt;UITableViewDelegate, UITableViewDataSource,btnClickedDelegate&gt;</span><br></pre></td></tr></table></figure></p>
+<p>7、第七步，然后将试图的代理设置为controller自己，代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BSPopupView *view = [[BSPopupView alloc] init];</span><br><span class="line">view.btnClickedDelegate = self</span><br></pre></td></tr></table></figure></p>
+<p>8、第八步，在viewController中实现在BSpopView中定义的代理方法，代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">                    -(void)btnClicked&#123;</span><br><span class="line">                    NSLog(@&quot;您在BSPopView中定义的代理方法被成功的实现了！&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后可以说说什么情况下使用代理，就是当两个对象有包含关系的时候就可以使用代理了。如果一个对象想让另一个对象干的不只一件事情，那么就使用代理。如果一个对象想让另一个对象干只有一件事情，那么可以采用BLOCK的方式来实现。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/09/Networking/" rel="next" title="Networking">
+                <i class="fa fa-chevron-left"></i> Networking
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">王斌绩</p>
+              <p class="site-description motion-element" itemprop="description">通工程信，计算机科学与技术，历史学家</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#the-Model-View-Controller-MVC-design-pattern"><span class="nav-number">1.</span> <span class="nav-text">the Model-View-Controller (MVC) design pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-view-controller’s-main-responsibilities-include-the-following"><span class="nav-number">2.</span> <span class="nav-text">A view controller’s main responsibilities include the following:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象之间的通信-一般有三种方式-代理、block、通知"><span class="nav-number">3.</span> <span class="nav-text">对象之间的通信 一般有三种方式  代理、block、通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成功的实现了一个代理"><span class="nav-number">4.</span> <span class="nav-text">成功的实现了一个代理</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#故事的开头是这样的：我在写一个项目的过程中自定义了一个View叫做BSPopupView，这个View是一个浮窗，浮窗上面有三行内容，每行内容中呢有一个图标，一行文字和一个点击按钮。当我在对应的ViewController中使用这个自定义的View的时候。我该在哪里处理View中按钮的点击事件呢？很明显的是应该将其放到ViewController中来处理，可是我该怎么做到呢？"><span class="nav-number"></span> <span class="nav-text">故事的开头是这样的：我在写一个项目的过程中自定义了一个View叫做BSPopupView，这个View是一个浮窗，浮窗上面有三行内容，每行内容中呢有一个图标，一行文字和一个点击按钮。当我在对应的ViewController中使用这个自定义的View的时候。我该在哪里处理View中按钮的点击事件呢？很明显的是应该将其放到ViewController中来处理，可是我该怎么做到呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我浪迹于各种博客，网站。略模的寻找到了一些线索。大致的方案呢有如下的三种：首先是可以采用发送通知的方式来处理，其次是使用代理的方式来处理，最后是采用Block的方式来处理。这算是给了上、中、下三策啊。可是问题又来了，谁是上策，谁是中策，谁又是下策呢？那我只能挨个儿试试啦。"><span class="nav-number">1.</span> <span class="nav-text">我浪迹于各种博客，网站。略模的寻找到了一些线索。大致的方案呢有如下的三种：首先是可以采用发送通知的方式来处理，其次是使用代理的方式来处理，最后是采用Block的方式来处理。这算是给了上、中、下三策啊。可是问题又来了，谁是上策，谁是中策，谁又是下策呢？那我只能挨个儿试试啦。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#既然有三种方式可用，那么这三种方式肯定是有各自独特的适用范围和情况的。就通知来说的话，更适用于两个对象没有关系，或者一个对象要和多个对象通信，那么可以采用通知中心。"><span class="nav-number">2.</span> <span class="nav-text">既然有三种方式可用，那么这三种方式肯定是有各自独特的适用范围和情况的。就通知来说的话，更适用于两个对象没有关系，或者一个对象要和多个对象通信，那么可以采用通知中心。</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王斌绩</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sypKf4XDEkpGQ1aJ2DO9R7Mj-gzGzoHsz',
+        appKey: 'kIaQP7xlt25gPDGY81zDgiao',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
