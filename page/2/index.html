@@ -243,6 +243,269 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/28/tableview抖动/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王斌绩">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书生意气">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/28/tableview抖动/" itemprop="url">tableview抖动</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-28T10:22:52+08:00">
+                2019-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/28/tableview抖动/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/28/tableview抖动/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="我在iOS开发中碰到的一些坑"><a href="#我在iOS开发中碰到的一些坑" class="headerlink" title="我在iOS开发中碰到的一些坑"></a>我在iOS开发中碰到的一些坑</h1><h1 id="问题记录-编写了一个可折叠的tableviewCell-但是后来发现展开或者收起的时候会发生抖动的问题，怅恨久之，终有良策。"><a href="#问题记录-编写了一个可折叠的tableviewCell-但是后来发现展开或者收起的时候会发生抖动的问题，怅恨久之，终有良策。" class="headerlink" title="问题记录 编写了一个可折叠的tableviewCell  但是后来发现展开或者收起的时候会发生抖动的问题，怅恨久之，终有良策。"></a>问题记录 编写了一个可折叠的tableviewCell  但是后来发现展开或者收起的时候会发生抖动的问题，怅恨久之，终有良策。</h1><h1 id="解决方案-iOS11后系统默认开启Self-Sizing，包括Headers和Footers，如果项目中没有使用estimatedRowHeight-iOS11下会有奇怪的问题。所以在Tableview初始化的地方加入下面的代码"><a href="#解决方案-iOS11后系统默认开启Self-Sizing，包括Headers和Footers，如果项目中没有使用estimatedRowHeight-iOS11下会有奇怪的问题。所以在Tableview初始化的地方加入下面的代码" class="headerlink" title="解决方案 iOS11后系统默认开启Self-Sizing，包括Headers和Footers，如果项目中没有使用estimatedRowHeight iOS11下会有奇怪的问题。所以在Tableview初始化的地方加入下面的代码"></a>解决方案 iOS11后系统默认开启Self-Sizing，包括Headers和Footers，如果项目中没有使用estimatedRowHeight iOS11下会有奇怪的问题。所以在Tableview初始化的地方加入下面的代码</h1><p>self.tableView.estimatedRowHeight = 0;<br>self.tableView.estimatedSectionHeaderHeight = 0;<br>self.tableView.estimatedSectionFooterHeight = 0;</p>
+<h1 id="问题记录-iOS10添加了隐私权限提示，但是当我们拒绝开启权限后，再次调用就会出现崩溃的问题，为了避免这个问题，我们可以在调用设备前判断是否开启了调用权限。"><a href="#问题记录-iOS10添加了隐私权限提示，但是当我们拒绝开启权限后，再次调用就会出现崩溃的问题，为了避免这个问题，我们可以在调用设备前判断是否开启了调用权限。" class="headerlink" title="问题记录 iOS10添加了隐私权限提示，但是当我们拒绝开启权限后，再次调用就会出现崩溃的问题，为了避免这个问题，我们可以在调用设备前判断是否开启了调用权限。"></a>问题记录 iOS10添加了隐私权限提示，但是当我们拒绝开启权限后，再次调用就会出现崩溃的问题，为了避免这个问题，我们可以在调用设备前判断是否开启了调用权限。</h1><h1 id="解决方案-调用设备前判断是否开启了调用权限。"><a href="#解决方案-调用设备前判断是否开启了调用权限。" class="headerlink" title="解决方案 调用设备前判断是否开启了调用权限。"></a>解决方案 调用设备前判断是否开启了调用权限。</h1><p>cellForRowAtIndexPath 和 heightForRowAtIndexPath 谁先调用，谁后调用？<br>如果你的tableview设置了预估的行高<br>cellForRowAtIndexPath 在 heightForRowAtIndexPath 之前</p>
+<p>如果你的tableview没有设置预估的行高<br>tableView首先会把所有IndexPath的heightForRowAtIndexPath轮训一遍以计算contentSize。而后按照情况1的顺序。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/15/7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王斌绩">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书生意气">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/15/7/" itemprop="url">7</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-15T20:40:39+08:00">
+                2019-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/15/7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/15/7/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="WKWebview-AlAMOFIRE"><a href="#WKWebview-AlAMOFIRE" class="headerlink" title="WKWebview      AlAMOFIRE"></a>WKWebview      AlAMOFIRE</h1><p>Alamofire is an HTTP networking library written in Swift.</p>
+<p>爱默飞 是 一个 用 Swift语言编写的 HTTP网络请求库  </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/智慧城管/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1413,7 +1676,7 @@ Coordinating with other objects—including other view controllers—in your app
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

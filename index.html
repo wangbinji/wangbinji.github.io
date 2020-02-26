@@ -243,6 +243,343 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/26/2020-02-27/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王斌绩">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书生意气">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/26/2020-02-27/" itemprop="url">2020-02-27 Objective-C与Swift混编</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-26T17:48:42+08:00">
+                2020-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/02/26/2020-02-27/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/26/2020-02-27/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="在一个Objective-C项目中实现与Swift混编"><a href="#在一个Objective-C项目中实现与Swift混编" class="headerlink" title="在一个Objective-C项目中实现与Swift混编"></a>在一个Objective-C项目中实现与Swift混编</h2><h3 id="在一个Objective-C项目中第一次创建一个Swift文件的时候，Xcode会提示是否需要创建一个桥接头文件，点击是之后Xcode会自动创建一个桥接文件，文件名为xxxx-Bridging-Header-h"><a href="#在一个Objective-C项目中第一次创建一个Swift文件的时候，Xcode会提示是否需要创建一个桥接头文件，点击是之后Xcode会自动创建一个桥接文件，文件名为xxxx-Bridging-Header-h" class="headerlink" title="在一个Objective-C项目中第一次创建一个Swift文件的时候，Xcode会提示是否需要创建一个桥接头文件，点击是之后Xcode会自动创建一个桥接文件，文件名为xxxx-Bridging-Header.h"></a>在一个Objective-C项目中第一次创建一个Swift文件的时候，Xcode会提示是否需要创建一个桥接头文件，点击是之后Xcode会自动创建一个桥接文件，文件名为xxxx-Bridging-Header.h</h3><hr>
+<p>1、Objective-C文件调用Swift文件的属性和方法<br>    a、需要在暴露出来的方法和属性上加@objc，否则不可用；且文件的类需要继承自NSObject或NSObject的子类<br>    b、在Objective-C文件里    #import “xxxx-Swift.h”    （xxxx为项目名）<br>2、Swift文件调用Objective-C文件中的属性和方法<br>    a、需要在统一的bridge头文件里面import相关的Objective-C文件，然后即可使用。<br>3、Objective-C Generated interface Header Name<br>    a、Targets  -&gt; Build Settings -&gt; Swift Compiler -&gt; General -&gt; Objective-C Generated Interface Header Name<br>    进行配置、默认文件名是         工程名-Swift.h<br>4、使用第三方framework<br>    a、Target -&gt; Build Setting -&gt; Packaging -&gt; Defines Modules        YES<br>    b、Target -&gt; Build Phases -&gt; Link Binary                    添加要导入的framework<br>    c、配置桥接文件，比如要使用abc-lib.framework库中的abc.h        #import “abc-lib/abc.h”<br>5、对于自定义的类，Objective-C的类，不能继承自Swift的类，即要混编的Objective-C类不能是Swift的子类,反之则可以</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/26/2020-02-26/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王斌绩">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书生意气">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/26/2020-02-26/" itemprop="url">2020-02-26 CoreData,CLLocation,Itms-Service 学习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-26T09:40:48+08:00">
+                2020-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/02/26/2020-02-26/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/26/2020-02-26/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h2 id="itmsServices-是苹果推出的一款协议，基于这款协议，我们在本地部署一个服务器，将ipa包存放到本地服务器，然后测试人员只要通过Safari浏览器访问特定的地址，就可以通过内网更新App"><a href="#itmsServices-是苹果推出的一款协议，基于这款协议，我们在本地部署一个服务器，将ipa包存放到本地服务器，然后测试人员只要通过Safari浏览器访问特定的地址，就可以通过内网更新App" class="headerlink" title="itmsServices 是苹果推出的一款协议，基于这款协议，我们在本地部署一个服务器，将ipa包存放到本地服务器，然后测试人员只要通过Safari浏览器访问特定的地址，就可以通过内网更新App"></a>itmsServices 是苹果推出的一款协议，基于这款协议，我们在本地部署一个服务器，将ipa包存放到本地服务器，然后测试人员只要通过Safari浏览器访问特定的地址，就可以通过内网更新App</h2><hr>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>1、项目打包后的文件、使用企业分发方式打出的一个xxx.ipa包<br>2、一个plist文件，内容如下。<br>3、由于xxx.plist文件的访问地址必须是https，我们需要将plist文件存放到github上，所以还需要一个github账号<br>4、下载的测试机，部署的服务器需要连接同一个内网<br>5、用测试机通过Safari浏览器输入如下地址，然后下载</p>
+<p>其中，参数1是IOS工程的根路径,是必输项。参数2可以不输入，是可选的，含义是编译时的工程configuration类型，有4种类型可选：Debug, AdHoc,Release， Distribution。默认是Release。<br>ipa-build脚本运行后，会在IOS工程根路径下生成名为“build”的文件夹，在这个文件夹中又有一个名为“ipa-build”的文件夹，打包所生成的最新ipa包就在其中。</p>
+<hr>
+<h3 id="最终生成的地址格式如下"><a href="#最终生成的地址格式如下" class="headerlink" title="最终生成的地址格式如下"></a>最终生成的地址格式如下</h3><h4 id="itms-services-action-download-manifest-amp-url-https-raw-githubusercontent-com-wangbinji-StopCar-master-down-plist"><a href="#itms-services-action-download-manifest-amp-url-https-raw-githubusercontent-com-wangbinji-StopCar-master-down-plist" class="headerlink" title="itms-services://?action=download-manifest&amp;url=https://raw.githubusercontent.com/wangbinji/StopCar/master/down.plist"></a>itms-services://?action=download-manifest&amp;url=<a href="https://raw.githubusercontent.com/wangbinji/StopCar/master/down.plist" target="_blank" rel="noopener">https://raw.githubusercontent.com/wangbinji/StopCar/master/down.plist</a></h4><hr>
+<h3 id="Plist文件格式如下"><a href="#Plist文件格式如下" class="headerlink" title="Plist文件格式如下"></a>Plist文件格式如下</h3><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+&lt;key&gt;items&lt;/key&gt;
+&lt;array&gt;
+    &lt;dict&gt;
+        &lt;key&gt;assets&lt;/key&gt;
+        &lt;array&gt;
+            &lt;dict&gt;
+                &lt;key&gt;kind&lt;/key&gt;
+                &lt;string&gt;software-package&lt;/string&gt;
+                &lt;key&gt;url&lt;/key&gt;
+                &lt;string&gt;http://xxxxxxxxxxxxxxxxxxx/xxx.ipa&lt;/string&gt;
+            &lt;/dict&gt;
+            &lt;dict&gt;
+                &lt;key&gt;kind&lt;/key&gt;
+                &lt;string&gt;full-size-image&lt;/string&gt;
+                &lt;key&gt;needs-shine&lt;/key&gt;
+                &lt;true/&gt;
+                &lt;key&gt;url&lt;/key&gt;
+                &lt;string&gt;http://xxxxxxxxxxxxxxxxxx.png&lt;/string&gt;
+            &lt;/dict&gt;
+            &lt;dict&gt;
+                &lt;key&gt;kind&lt;/key&gt;
+                &lt;string&gt;display-image&lt;/string&gt;
+                &lt;key&gt;needs-shine&lt;/key&gt;
+                &lt;true/&gt;
+                &lt;key&gt;url&lt;/key&gt;
+                &lt;string&gt;http://xxxxxxxxxxxxxxxxxx.png&lt;/string&gt;
+            &lt;/dict&gt;
+        &lt;/array&gt;
+        &lt;key&gt;metadata&lt;/key&gt;
+        &lt;dict&gt;
+            &lt;key&gt;bundle-identifier&lt;/key&gt;
+            &lt;string&gt;com.xxxx.demo&lt;/string&gt;
+            &lt;key&gt;bundle-version&lt;/key&gt;
+            &lt;string&gt;1.0.0&lt;/string&gt;
+            &lt;key&gt;kind&lt;/key&gt;
+            &lt;string&gt;software&lt;/string&gt;
+            &lt;key&gt;title&lt;/key&gt;
+            &lt;string&gt;XXXX App download&lt;/string&gt;
+        &lt;/dict&gt;
+    &lt;/dict&gt;
+&lt;/array&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre><hr>
+<h1 id="CoreData"><a href="#CoreData" class="headerlink" title="CoreData"></a>CoreData</h1><h2 id="CoreData-苹果自己推出的数据存储框架，采用了一种ORM（对象关系映射）的存储关系"><a href="#CoreData-苹果自己推出的数据存储框架，采用了一种ORM（对象关系映射）的存储关系" class="headerlink" title="CoreData    苹果自己推出的数据存储框架，采用了一种ORM（对象关系映射）的存储关系"></a>CoreData    苹果自己推出的数据存储框架，采用了一种ORM（对象关系映射）的存储关系</h2><p>数据库数据与Objective-C对象相互转换</p>
+<p>NSManagedObjectContext                            托管对象上下文，数据库的大多数操作是在这个类操作<br>NSManagedObjectModel                               托管对象模型，其中一个托管对象模型关联到一个模型文件，里面存储着数据库的数据结构<br>NSPersistentStoreCoordinator                       持久化存储协调器    主要负责协调上下文与存储的区域的关系<br>NSManagedObject                                         托管对象类，其中CoreData里面的托管对象都会继承此类</p>
+<ul>
+<li>Integer 16          代表整数，范围是    -32768 ~ 32767</li>
+<li>Integer 32          代表整数，范围是    -2147483648 ~ 2147483647</li>
+<li>Integer 64          代表整数，范围是    -9223372036854775808 ~ 9223372036854775807</li>
+<li>Double              代表小数</li>
+<li>Float                   代表小数</li>
+<li>String                  代表字符串， NSString表示</li>
+<li>Boolean             代表布尔值，使用NSNumber表示</li>
+<li>Data                    代表日期时期</li>
+<li>Binary Data         代表二进制，使用NSData表示</li>
+<li>Transformable       代表Objective-C对象，要遵守NSCopying协议</li>
+</ul>
+<hr>
+<h1 id="CLLocation"><a href="#CLLocation" class="headerlink" title="CLLocation"></a>CLLocation</h1><ul>
+<li>1、静止不动<br>  上一个GPS点的瞬时速度为零，当前点的瞬时速度也为零，那么当前点无效，瞬时速度就是CLLocation的属性speed</li>
+<li>2、GPS信号太差<br>  信号是CLLocation的属性horizontalAccuracy，表示水平方向的误差值，当这个值大于70，认为信号差。</li>
+<li>3、无效移动<br>  前后两个GPS点的距离小于horizontalAccuracy*（0.5-0.66），我们认为这个点是无效移动</li>
+<li>4、平均速度过大<br>  当前点到上一个点的距离/当前点到上一个点的时间             速度大于某一个值，则认为当前点无效</li>
+<li>5、采样频率<br>  distanceFilter = 30   只有超过30米的移动，才会进入到位置更新的回调方法。省电、CPU占用低</li>
+</ul>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/20/2020-01-20/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1373,269 +1710,6 @@ linux&gt; gcc -o hello hello.c
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/28/tableview抖动/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王斌绩">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书生意气">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/28/tableview抖动/" itemprop="url">tableview抖动</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-28T10:22:52+08:00">
-                2019-06-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/06/28/tableview抖动/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/28/tableview抖动/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="我在iOS开发中碰到的一些坑"><a href="#我在iOS开发中碰到的一些坑" class="headerlink" title="我在iOS开发中碰到的一些坑"></a>我在iOS开发中碰到的一些坑</h1><h1 id="问题记录-编写了一个可折叠的tableviewCell-但是后来发现展开或者收起的时候会发生抖动的问题，怅恨久之，终有良策。"><a href="#问题记录-编写了一个可折叠的tableviewCell-但是后来发现展开或者收起的时候会发生抖动的问题，怅恨久之，终有良策。" class="headerlink" title="问题记录 编写了一个可折叠的tableviewCell  但是后来发现展开或者收起的时候会发生抖动的问题，怅恨久之，终有良策。"></a>问题记录 编写了一个可折叠的tableviewCell  但是后来发现展开或者收起的时候会发生抖动的问题，怅恨久之，终有良策。</h1><h1 id="解决方案-iOS11后系统默认开启Self-Sizing，包括Headers和Footers，如果项目中没有使用estimatedRowHeight-iOS11下会有奇怪的问题。所以在Tableview初始化的地方加入下面的代码"><a href="#解决方案-iOS11后系统默认开启Self-Sizing，包括Headers和Footers，如果项目中没有使用estimatedRowHeight-iOS11下会有奇怪的问题。所以在Tableview初始化的地方加入下面的代码" class="headerlink" title="解决方案 iOS11后系统默认开启Self-Sizing，包括Headers和Footers，如果项目中没有使用estimatedRowHeight iOS11下会有奇怪的问题。所以在Tableview初始化的地方加入下面的代码"></a>解决方案 iOS11后系统默认开启Self-Sizing，包括Headers和Footers，如果项目中没有使用estimatedRowHeight iOS11下会有奇怪的问题。所以在Tableview初始化的地方加入下面的代码</h1><p>self.tableView.estimatedRowHeight = 0;<br>self.tableView.estimatedSectionHeaderHeight = 0;<br>self.tableView.estimatedSectionFooterHeight = 0;</p>
-<h1 id="问题记录-iOS10添加了隐私权限提示，但是当我们拒绝开启权限后，再次调用就会出现崩溃的问题，为了避免这个问题，我们可以在调用设备前判断是否开启了调用权限。"><a href="#问题记录-iOS10添加了隐私权限提示，但是当我们拒绝开启权限后，再次调用就会出现崩溃的问题，为了避免这个问题，我们可以在调用设备前判断是否开启了调用权限。" class="headerlink" title="问题记录 iOS10添加了隐私权限提示，但是当我们拒绝开启权限后，再次调用就会出现崩溃的问题，为了避免这个问题，我们可以在调用设备前判断是否开启了调用权限。"></a>问题记录 iOS10添加了隐私权限提示，但是当我们拒绝开启权限后，再次调用就会出现崩溃的问题，为了避免这个问题，我们可以在调用设备前判断是否开启了调用权限。</h1><h1 id="解决方案-调用设备前判断是否开启了调用权限。"><a href="#解决方案-调用设备前判断是否开启了调用权限。" class="headerlink" title="解决方案 调用设备前判断是否开启了调用权限。"></a>解决方案 调用设备前判断是否开启了调用权限。</h1><p>cellForRowAtIndexPath 和 heightForRowAtIndexPath 谁先调用，谁后调用？<br>如果你的tableview设置了预估的行高<br>cellForRowAtIndexPath 在 heightForRowAtIndexPath 之前</p>
-<p>如果你的tableview没有设置预估的行高<br>tableView首先会把所有IndexPath的heightForRowAtIndexPath轮训一遍以计算contentSize。而后按照情况1的顺序。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/15/7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="王斌绩">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="书生意气">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/15/7/" itemprop="url">7</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-15T20:40:39+08:00">
-                2019-06-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/06/15/7/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/15/7/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="WKWebview-AlAMOFIRE"><a href="#WKWebview-AlAMOFIRE" class="headerlink" title="WKWebview      AlAMOFIRE"></a>WKWebview      AlAMOFIRE</h1><p>Alamofire is an HTTP networking library written in Swift.</p>
-<p>爱默飞 是 一个 用 Swift语言编写的 HTTP网络请求库  </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1686,7 +1760,7 @@ linux&gt; gcc -o hello hello.c
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
