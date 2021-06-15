@@ -1,16 +1,778 @@
-extends includes/layout
+<!DOCTYPE html>
 
-block site_title
-    != config.title + " | " + page.title
 
-block description
-    meta(name="description", content=page.excerpt)
 
-block container
-    include mixins/post
-    +article(page)
-    include includes/disqus
+  
 
-block pagination
-    include mixins/paginator
-    +forPost()
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="凡事预则立，不预则废。自本人购买深入理解计算机系统一书以来，4月有余。泛泛的浏览了一遍，但深感学习的不扎实。遂决定自今日始，写小文章记录自己对此书的学习过程。力求在接下来的工作和生活中，对此书能有一个略微扎实的掌握，不负自己的初心。开篇作者讲述了通过学习计算机系统对自己编程有哪些帮助。举了如下的例子：  避免由计算机表示数字的方式引起奇怪的数字问题。 通过一些小窍门来优化自己的C代码，以充分利用现">
+<meta name="keywords" content="wangbinji,iOS,Apple">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机系统漫游">
+<meta property="og:url" content="http://yoursite.com/2019/07/20/计算机系统漫游/index.html">
+<meta property="og:site_name" content="书生意气">
+<meta property="og:description" content="凡事预则立，不预则废。自本人购买深入理解计算机系统一书以来，4月有余。泛泛的浏览了一遍，但深感学习的不扎实。遂决定自今日始，写小文章记录自己对此书的学习过程。力求在接下来的工作和生活中，对此书能有一个略微扎实的掌握，不负自己的初心。开篇作者讲述了通过学习计算机系统对自己编程有哪些帮助。举了如下的例子：  避免由计算机表示数字的方式引起奇怪的数字问题。 通过一些小窍门来优化自己的C代码，以充分利用现">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-20T15:01:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机系统漫游">
+<meta name="twitter:description" content="凡事预则立，不预则废。自本人购买深入理解计算机系统一书以来，4月有余。泛泛的浏览了一遍，但深感学习的不扎实。遂决定自今日始，写小文章记录自己对此书的学习过程。力求在接下来的工作和生活中，对此书能有一个略微扎实的掌握，不负自己的初心。开篇作者讲述了通过学习计算机系统对自己编程有哪些帮助。举了如下的例子：  避免由计算机表示数字的方式引起奇怪的数字问题。 通过一些小窍门来优化自己的C代码，以充分利用现">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/20/计算机系统漫游/">
+
+
+
+
+
+  <title>计算机系统漫游 | 书生意气</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">书生意气</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/20/计算机系统漫游/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王斌绩">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书生意气">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机系统漫游</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-20T15:56:01+08:00">
+                2019-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/20/计算机系统漫游/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/20/计算机系统漫游/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="凡事预则立，不预则废。自本人购买深入理解计算机系统一书以来，4月有余。泛泛的浏览了一遍，但深感学习的不扎实。遂决定自今日始，写小文章记录自己对此书的学习过程。力求在接下来的工作和生活中，对此书能有一个略微扎实的掌握，不负自己的初心。"><a href="#凡事预则立，不预则废。自本人购买深入理解计算机系统一书以来，4月有余。泛泛的浏览了一遍，但深感学习的不扎实。遂决定自今日始，写小文章记录自己对此书的学习过程。力求在接下来的工作和生活中，对此书能有一个略微扎实的掌握，不负自己的初心。" class="headerlink" title="凡事预则立，不预则废。自本人购买深入理解计算机系统一书以来，4月有余。泛泛的浏览了一遍，但深感学习的不扎实。遂决定自今日始，写小文章记录自己对此书的学习过程。力求在接下来的工作和生活中，对此书能有一个略微扎实的掌握，不负自己的初心。"></a>凡事预则立，不预则废。自本人购买深入理解计算机系统一书以来，4月有余。泛泛的浏览了一遍，但深感学习的不扎实。遂决定自今日始，写小文章记录自己对此书的学习过程。力求在接下来的工作和生活中，对此书能有一个略微扎实的掌握，不负自己的初心。</h1><p>开篇作者讲述了通过学习计算机系统对自己编程有哪些帮助。举了如下的例子：</p>
+<ol>
+<li>避免由计算机表示数字的方式引起奇怪的数字问题。</li>
+<li>通过一些小窍门来优化自己的C代码，以充分利用现代处理器和存储器系统的设计。</li>
+<li>了解编译器是如何实现过程调用的，以及如何利用这些知识来避免缓冲区溢出错误带来的安全漏洞。</li>
+<li>学会如何编写自己的Unix shell、自己动态存储分配包、甚至于自己的Web服务器。</li>
+<li>会认识并发带来的希望和陷阱。</li>
+</ol>
+<p>一、引言<br>作者在介绍完学习这本书我们会有哪些收获后，开始了本章的第一部分内容，介绍了最经典的“Hello world”程序的完整生命周期，这对一个程序员了解自己编写的程序是很有帮助的。下面就对一个由C语言编写的Hello world程序进行描述：</p>
+<p>程序示例代码如下</p>
+<p>##############################################################################</p>
+<p>#include &lt;stdio.h&gt;<br>int main()<br>{<br>    printf(“hello, world\n”);<br>    return 0;<br>}</p>
+<p>#############################################################################<br>总的描述这个程序的执行过程为：</p>
+<ol>
+<li>首先被程序员创建</li>
+<li>到系统上运行</li>
+<li>输出简单的消息</li>
+<li>然后终止<br>作者指明将沿着这个程序的生命周期，简要的介绍一些逐步出现的关键概念、专业术语、和组成部分</li>
+</ol>
+<p>程序员首先用编辑器创建的Hello.c程序被称为源程序。源程序实际上是一个由0和1组成的位序列。8个位被组成为一组，称为<strong>字节</strong>。每个字节表示程序中的某些文本字符。这些文本字符在大多数的计算机系统上都是由ASCII标准表示的。有点需要注意的是：每个文本行都是以一个看不见的换行符‘\n’来结束的。有ASCII字符构成的文件称为文本文件，所有其他文件都称为二进制文件。<br>作者在这里提出了一个基本的思想：系统中所有的信息————包括磁盘文件、内存中的程序、内存中存放的用户数据以及网络上传送的数据，都是由一串比特表示的。区分不同数据对象的唯一方法是我们读到这些数据对象时的上下文。</p>
+<hr>
+<p>C编程语言的起源：<br>    C语言是贝尔实验室的Dennis Ritchie于1969~1973年间创建的。后来C语言的标准化成了国际标注化组织的责任。这些标准定义了C语言和一些列函数库，即所谓的C标准库。Kernighan和Ritchie在他们的经典著作中描述了ASCII C。他们说到C语言是古怪的、有缺陷的、但同时也是一个巨大的成功。C语言主要有如下的三个特点：</p>
+<pre><code>* C语言与Unix系统关系密切。
+* C语言小而简单
+* C语言是为实践目的设计的。
+C语言是系统级编程的首选，同时也非常的适用于应用级程序的编写。C语言的指针不易让人理解。同时，C语言缺乏对抽象的显示支持。例如类、对象和异常。
+</code></pre><hr>
+<pre><code>Hello.c程序的生命周期是从一个高级C语言程序开始的，因为这种形式能够被人读懂。但是呢、为了在系统上运行Hello.c程序,每条C语句都必须被其他程序转化为一系列的地低级机器语言指令。然后这些指令按照一种称为**可执行目标程序**的格式打包好，并以二进制磁盘文件的形式存放起来。目标程序也被称为**可执行目标文件**。
+在Unix系统上，从源文件到目标文件的转化是由编译器驱动程序完成的：
+linux&gt; gcc -o hello hello.c
+在这里，GCC编译器驱动程序读取源程序文件hello.c，并把它翻译成一个可执行目标文件hello。这个翻译过程主要由四个阶段完成：
+</code></pre><p>################################################################################</p>
+<ol>
+<li>预处理阶段<br> 预处理器根据以字符#开头的命令，修改原始的C程序。得到Hello.i</li>
+<li>编译阶段<br> 编译器(ccl)将文本文件hello.i翻译成文本文件hello.s，他包含一个汇编语言程序。</li>
+<li>汇编阶段<br> 汇编器(as)将hello.s翻译成机器语言指令，并把这些指令打包成一种叫做<strong>可重定位目标程序</strong>的格式，并将结果保存在目标文件hello.o中</li>
+<li>链接阶段<br> 连接器(ld)负责将printf.o合并到hello.o程序中。最后得到hello文件，它是一个<strong>可执行目标文件</strong>，可以被加载到内存中，由系统执行<br>#################################################################################</li>
+</ol>
+<p>接下来作者告诉我们了解编译系统是如何工作的诸多好处</p>
+<ul>
+<li>优化程序性能<br>  <em>一个switch语句是否比一系列的if-else语句高效？
+  </em>一个函数调用的开销有多大？<br>  <em>while循环比for循环更有效吗？
+  </em>指针引用比数组索引更有效吗？<br>  *为什么将循环求和的结果放到一个本地变量中，会比将其放到一个通过引用传递过来的参数中，运行的更快？</li>
+<li>理解链接时出现的错误<br>  <em>链接器报告说无法解析一个引用，这是什么意思？
+  </em>静态变量和全局变量的区别是什么？<br>  <em>静态库和动态库的区别是什么？
+  </em>为什么有些链接错误直到运行时才会出现？</li>
+<li>避免安全漏洞</li>
+</ul>
+<p>1.4 处理器读并解释存在内存中的指令</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/09/图片自动布局/" rel="next" title="图片自动布局">
+                <i class="fa fa-chevron-left"></i> 图片自动布局
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/01/iOS/" rel="prev" title="一名晚入行的iOS程序猿">
+                一名晚入行的iOS程序猿 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">王斌绩</p>
+              <p class="site-description motion-element" itemprop="description">通工程信，计算机科学与技术，历史学家</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#凡事预则立，不预则废。自本人购买深入理解计算机系统一书以来，4月有余。泛泛的浏览了一遍，但深感学习的不扎实。遂决定自今日始，写小文章记录自己对此书的学习过程。力求在接下来的工作和生活中，对此书能有一个略微扎实的掌握，不负自己的初心。"><span class="nav-number">1.</span> <span class="nav-text">凡事预则立，不预则废。自本人购买深入理解计算机系统一书以来，4月有余。泛泛的浏览了一遍，但深感学习的不扎实。遂决定自今日始，写小文章记录自己对此书的学习过程。力求在接下来的工作和生活中，对此书能有一个略微扎实的掌握，不负自己的初心。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王斌绩</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sypKf4XDEkpGQ1aJ2DO9R7Mj-gzGzoHsz',
+        appKey: 'kIaQP7xlt25gPDGY81zDgiao',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

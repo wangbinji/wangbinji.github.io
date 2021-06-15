@@ -1,16 +1,721 @@
-extends includes/layout
+<!DOCTYPE html>
 
-block site_title
-    != config.title + " | " + page.title
 
-block description
-    meta(name="description", content=page.excerpt)
 
-block container
-    include mixins/post
-    +article(page)
-    include includes/disqus
+  
 
-block pagination
-    include mixins/paginator
-    +forPost()
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="网络通信模块  AFURLSessionManager、AFHTTPSessionManager网络状态监听模块    Reachability网络通信安全策略模块  Security网络通信信息序列化/反序列号模块    Serialization对于iOS UIKit库的扩展 调用父类的初始化方法检测URL有值且最后一位不包含/,需要加上/保存baseURL请求序列对象、响应序列对象 quen">
+<meta name="keywords" content="wangbinji,iOS,Apple">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020-02-28">
+<meta property="og:url" content="http://yoursite.com/2020/02/28/2020-02-28/index.html">
+<meta property="og:site_name" content="书生意气">
+<meta property="og:description" content="网络通信模块  AFURLSessionManager、AFHTTPSessionManager网络状态监听模块    Reachability网络通信安全策略模块  Security网络通信信息序列化/反序列号模块    Serialization对于iOS UIKit库的扩展 调用父类的初始化方法检测URL有值且最后一位不包含/,需要加上/保存baseURL请求序列对象、响应序列对象 quen">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-29T12:32:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2020-02-28">
+<meta name="twitter:description" content="网络通信模块  AFURLSessionManager、AFHTTPSessionManager网络状态监听模块    Reachability网络通信安全策略模块  Security网络通信信息序列化/反序列号模块    Serialization对于iOS UIKit库的扩展 调用父类的初始化方法检测URL有值且最后一位不包含/,需要加上/保存baseURL请求序列对象、响应序列对象 quen">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/02/28/2020-02-28/">
+
+
+
+
+
+  <title>2020-02-28 | 书生意气</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">书生意气</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/28/2020-02-28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王斌绩">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="书生意气">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2020-02-28</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-28T10:13:18+08:00">
+                2020-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/02/28/2020-02-28/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/28/2020-02-28/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>网络通信模块  AFURLSessionManager、AFHTTPSessionManager<br>网络状态监听模块    Reachability<br>网络通信安全策略模块  Security<br>网络通信信息序列化/反序列号模块    Serialization<br>对于iOS UIKit库的扩展</p>
+<p>调用父类的初始化方法<br>检测URL有值且最后一位不包含/,需要加上/<br>保存baseURL<br>请求序列对象、响应序列对象</p>
+<p>quene并发线程数设置为1<br>各种响应转码<br>设置默认安全策略<br>加锁，确保多线程访问安全<br>置空task关联的代理<br>初始化一些属性，包括<br>mutableTaskDelegatesKeyedByTaskIdentifier   让每一个请求Task和我们自定义的AF代理建立映射用的<br>异步获取当前当前session的所有未完成的task      防止后台回来重新初始化这个Session，一些之前的后台请求任务，导致程序崩溃</p>
+<p>生成一个Task，然后开始网络请求<br>将参数和各种东西转化为一个NSMutableURLRequest<br>如果解析错误，那么直接返回<br>用self.requestSerializer和各种参数去获取了一个我们最终请求网络需要的NSMutableURLRequest实例，并且在完成的回调里，调用我们传过来的成功和失败的回调</p>
+<p>将request的各种属性循环遍历<br>将传入的参数进行编码并且添加到request中<br>AFHTTPRequestSerializerObservedKeyPaths()   是一个C函数返回一个数组<br>这个函数主要是封装了一些属性的名字   这些都是NSURLRequest的属性</p>
+<p>self.mutableObservedChangedKeyPaths<br>在init方法对这个集合进行了初始化，并且对当前类的和NSURLRequest的相关属性进行了KVO监听<br>当观察到这些set方法被调用了，而且不为Null就会添加到集合里，否则移除<br>这个属性其实是我们自己设置的request属性的集合</p>
+<p>[mutableRequest setValue:[self valueForKeyPath:keyPath] forKey:keyPath];<br>用KVC的方式，把属性值都设置到我们请求的request中去<br>将传入的参数进行编码，并且设置到request中去<br>判断该Request中是否包含了GET，HEAD，DELETE。POST、PUT是把query拼接到Http body中的<br>设置请求头、请求体<br>从自己的head里去遍历，如果有值则设置给request的head<br>把各种类型的参数，array，dic，set转化成字符串，给request<br>具体怎么实现容器类型的参数转换为字符串类型的参数<br>紧接着根据请求类型，判断参数字符串如何设置到request中去。如果是GET、HEAD、DELETE，则把参数query拼接到url的后面。而POST、PUT是吧query拼接到http body中</p>
+<p>完成初始化方法<br>生成一个request</p>
+<p>调用父类的生成Task方法，并且执行了一个成功和失败的回调<br>创建NSURLSessionDataTask<br>为什么用同步，因为想要主线程等在这，执行成功再返回，只有执行完dataTask才有数据，传值才有意义<br>为什么要用串行队列，防止iOS8以下内部的dataTaskWithRequest是并发创建的，会导致taskIdentifiers这个属性值不唯一，因为后续要用taskidentifiers来做为key对应delegate<br>保证即使在多线程的环境下，也不会创建其他队列</p>
+<p>为什么不直接调用    dataTask = [self.session dataTaskWithRequest:request]   为了适配iOS8以下，创建session的时候，偶发的情况会出现session的属性taskIdentifiers这个值不唯一，而这个taskIdentifiers是为了后来我们映射delegate的key，所以他必须是唯一的。</p>
+<p>AFURLSessionManagerTaskDelegate和AFURLSessionManager建立相互关系<br>设置AF delegate 的上传进度块，下载进度块<br>加锁，保证字典线程安全<br>为AF delegate 设置task的progress监听<br>添加task开始和暂停的通知<br>如果task触发KVO，则给progress进度赋值，因为赋值了，所以会触发progress的KVO，也会调用到这里，然后执行我们传进来的downloadProgress 和uploadProgressBlock          为了让进度实时的传递<br>线程、锁、性能各方面权衡</p>
+<p>1、初始化动画，并设置动画属性<br>2、设置动画属性初始值、结束值、以及其他属性<br>3、绘图层添加动画</p>
+<p>Core Animation<br>核心动画：基础动画、关键帧动画、动画组、转场动画<br>将基础动画添加到动画组，最后将动画组添加到图层<br>CABasicAnimation<br>CAKeyframeAnimation</p>
+<p>创建转场动画<br>设置转场类型、子类型及其他属性<br>设置转场后的新视图并添加动画到图层</p>
+<p>旋转动画<br>创建动画并定制动画属性<br>设置动画属性初始值、结束值<br>设置其他动画属性<br>添加动画到图层，注意key相当于给动画进行命名，以后获得动画时可以使用此名称</p>
+<p>图层动画的本质就是将图层内部的内容转化为位图，经硬件操作形成一种动画效果，其实图层本身没有任何变化，上面的动画中图层并没有因为动画效果而改变他的位置。对于缩放动画其实大小也是不会改变的，所以动画完成后图层还是在原来显示的位置没有任何变化。如果这个图层在一个UIView中你会发现在UIView移动的过程中，你要触发UIView的点击事件也只能点击原来的位置。因为他的位置从来没有改变过</p>
+<p>核心动画有一个媒体时间的概念，假设将一个旋转动画设置旋转一周用时60秒的话，那当动画旋转90度后媒体时间就是15秒，如果此时要将动画暂停，只需要让媒体时间偏移设置为15秒即可。并把动画运行速度设置为0使其停止运动。类似的，如果又过了60秒后需要回复动画。这是只要将动画开始时间设置为当前媒体时间75秒减去暂停时的时间。那么动画就会冲</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/26/2020-02-27/" rel="next" title="Workspace,Static Library,Framework,Objective-C,Swift">
+                <i class="fa fa-chevron-left"></i> Workspace,Static Library,Framework,Objective-C,Swift
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/07/2020-03-07/" rel="prev" title="Git使用教程">
+                Git使用教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">王斌绩</p>
+              <p class="site-description motion-element" itemprop="description">通工程信，计算机科学与技术，历史学家</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王斌绩</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'sypKf4XDEkpGQ1aJ2DO9R7Mj-gzGzoHsz',
+        appKey: 'kIaQP7xlt25gPDGY81zDgiao',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
